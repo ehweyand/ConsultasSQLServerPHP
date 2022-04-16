@@ -1,5 +1,5 @@
 
-/* // Aplica o datatable
+ // Aplica o datatable
 $(document).ready( function () {
     $('#queryResults').DataTable({
         "language": {
@@ -7,7 +7,8 @@ $(document).ready( function () {
             "zeroRecords": "Não foi encontrado nenhum registro.",
             "info": "Mostrando a página _PAGE_ de _PAGES_",
             "infoEmpty": "Sem registros disponíveis",
-            "infoFiltered": "(Filtrando de _MAX_ registros totais)"
+            "infoFiltered": "(Filtrando de _MAX_ registros totais)",
+            "search": "Buscar:"
         }
     });
-} ); */
+} ); 

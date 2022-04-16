@@ -12,13 +12,34 @@ if(isset($_GET['acao'])) {
 
         // Com a query em mãos de consulta, buscar a conexão e validar
         $conexao = (new Conexao())->conectar();
+        // Medição de tempo
+        $started = microtime(true);
+
+        $stmt = $conexao->prepare($query);
+        $stmt->execute();
+
+        // Popula o array associativo
+        $consultaResultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $colunas = array_keys($consultaResultado[0]);
+        // echo '<pre>',print_r($consultaResultado),'</pre>';
+        // printr($consultaResultado);
+
+        // Final da medição
+        $end = microtime(true);
         
+        // Cálculo da diferença
+        $difference = $end - $started;
+        $queryTime = number_format($difference, 10);
 
-
-
-
-
+        
     }
 }
+
+// Simple debug function
+function printr($data) {
+    echo "<pre>";
+       print_r($data);
+    echo "</pre>";
+ }
 
 ?>
